@@ -1,0 +1,967 @@
+diff --git a/Cargo.lock b/Cargo.lock
+index 704334175..492cd5361 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -296,14 +296,6 @@ dependencies = [
+  "serde 1.0.101 (registry+https://github.com/rust-lang/crates.io-index)",
+ ]
+ 
+-[[package]]
+-name = "build-helper"
+-version = "0.1.1"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-dependencies = [
+- "semver 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
+-]
+-
+ [[package]]
+ name = "bumpalo"
+ version = "2.6.0"
+@@ -358,17 +350,6 @@ name = "c_linked_list"
+ version = "1.1.1"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ 
+-[[package]]
+-name = "cargo_metadata"
+-version = "0.8.2"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-dependencies = [
+- "semver 0.9.0 (registry+https://github.com/rust-lang/crates.io-index)",
+- "serde 1.0.101 (registry+https://github.com/rust-lang/crates.io-index)",
+- "serde_derive 1.0.101 (registry+https://github.com/rust-lang/crates.io-index)",
+- "serde_json 1.0.40 (registry+https://github.com/rust-lang/crates.io-index)",
+-]
+-
+ [[package]]
+ name = "cast"
+ version = "0.2.2"
+@@ -930,15 +911,6 @@ dependencies = [
+  "winapi 0.3.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ ]
+ 
+-[[package]]
+-name = "fs2"
+-version = "0.4.3"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-dependencies = [
+- "libc 0.2.62 (registry+https://github.com/rust-lang/crates.io-index)",
+- "winapi 0.3.8 (registry+https://github.com/rust-lang/crates.io-index)",
+-]
+-
+ [[package]]
+ name = "fuchsia-cprng"
+ version = "0.1.1"
+@@ -2389,7 +2361,7 @@ dependencies = [
+  "srml-system 2.0.0",
+  "srml-timestamp 2.0.0",
+  "srml-treasury 2.0.0",
+- "substrate-executor 2.0.0",
++ "substrate-executor 2.0.1-gw001",
+  "substrate-primitives 2.0.0",
+  "substrate-state-machine 2.0.0",
+  "substrate-test-client 2.0.0",
+@@ -2514,7 +2486,7 @@ dependencies = [
+  "substrate-client 2.0.0",
+  "substrate-consensus-babe 2.0.0",
+  "substrate-consensus-babe-primitives 2.0.0",
+- "substrate-executor 2.0.0",
++ "substrate-executor 2.0.1-gw001",
+  "substrate-finality-grandpa 2.0.0",
+  "substrate-finality-grandpa-primitives 2.0.0",
+  "substrate-inherents 2.0.0",
+@@ -2576,7 +2548,7 @@ dependencies = [
+  "srml-timestamp 2.0.0",
+  "srml-treasury 2.0.0",
+  "substrate-client 2.0.0",
+- "substrate-executor 2.0.0",
++ "substrate-executor 2.0.1-gw001",
+  "substrate-keyring 2.0.0",
+  "substrate-primitives 2.0.0",
+  "substrate-test-client 2.0.0",
+@@ -3548,21 +3520,12 @@ dependencies = [
+  "core-foundation-sys 0.6.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ ]
+ 
+-[[package]]
+-name = "semver"
+-version = "0.6.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-dependencies = [
+- "semver-parser 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
+-]
+-
+ [[package]]
+ name = "semver"
+ version = "0.9.0"
+ source = "registry+https://github.com/rust-lang/crates.io-index"
+ dependencies = [
+  "semver-parser 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
+- "serde 1.0.101 (registry+https://github.com/rust-lang/crates.io-index)",
+ ]
+ 
+ [[package]]
+@@ -4680,7 +4643,7 @@ dependencies = [
+  "sr-std 2.0.0",
+  "sr-version 2.0.0",
+  "substrate-consensus-common 2.0.0",
+- "substrate-executor 2.0.0",
++ "substrate-executor 2.0.1-gw001",
+  "substrate-header-metadata 2.0.0",
+  "substrate-inherents 2.0.0",
+  "substrate-keyring 2.0.0",
+@@ -4709,7 +4672,7 @@ dependencies = [
+  "sr-primitives 2.0.0",
+  "substrate-client 2.0.0",
+  "substrate-consensus-common 2.0.0",
+- "substrate-executor 2.0.0",
++ "substrate-executor 2.0.1-gw001",
+  "substrate-header-metadata 2.0.0",
+  "substrate-keyring 2.0.0",
+  "substrate-primitives 2.0.0",
+@@ -4741,7 +4704,7 @@ dependencies = [
+  "substrate-consensus-aura-primitives 2.0.0",
+  "substrate-consensus-common 2.0.0",
+  "substrate-consensus-slots 2.0.0",
+- "substrate-executor 2.0.0",
++ "substrate-executor 2.0.1-gw001",
+  "substrate-inherents 2.0.0",
+  "substrate-keyring 2.0.0",
+  "substrate-keystore 2.0.0",
+@@ -4795,7 +4758,7 @@ dependencies = [
+  "substrate-consensus-common 2.0.0",
+  "substrate-consensus-slots 2.0.0",
+  "substrate-consensus-uncles 2.0.0",
+- "substrate-executor 2.0.0",
++ "substrate-executor 2.0.1-gw001",
+  "substrate-header-metadata 2.0.0",
+  "substrate-inherents 2.0.0",
+  "substrate-keyring 2.0.0",
+@@ -4925,7 +4888,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "substrate-executor"
+-version = "2.0.0"
++version = "2.0.1-gw001"
+ dependencies = [
+  "assert_matches 1.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
+  "derive_more 0.15.0 (registry+https://github.com/rust-lang/crates.io-index)",
+@@ -5214,7 +5177,7 @@ dependencies = [
+  "sr-primitives 2.0.0",
+  "sr-version 2.0.0",
+  "substrate-client 2.0.0",
+- "substrate-executor 2.0.0",
++ "substrate-executor 2.0.1-gw001",
+  "substrate-keystore 2.0.0",
+  "substrate-network 2.0.0",
+  "substrate-primitives 2.0.0",
+@@ -5319,7 +5282,7 @@ dependencies = [
+  "substrate-client-db 2.0.0",
+  "substrate-consensus-babe-primitives 2.0.0",
+  "substrate-consensus-common 2.0.0",
+- "substrate-executor 2.0.0",
++ "substrate-executor 2.0.1-gw001",
+  "substrate-finality-grandpa 2.0.0",
+  "substrate-finality-grandpa-primitives 2.0.0",
+  "substrate-keystore 2.0.0",
+@@ -5428,7 +5391,7 @@ dependencies = [
+  "substrate-client 2.0.0",
+  "substrate-client-db 2.0.0",
+  "substrate-consensus-common 2.0.0",
+- "substrate-executor 2.0.0",
++ "substrate-executor 2.0.1-gw001",
+  "substrate-keyring 2.0.0",
+  "substrate-primitives 2.0.0",
+  "substrate-state-machine 2.0.0",
+@@ -5456,7 +5419,7 @@ dependencies = [
+  "substrate-client 2.0.0",
+  "substrate-consensus-aura-primitives 2.0.0",
+  "substrate-consensus-babe-primitives 2.0.0",
+- "substrate-executor 2.0.0",
++ "substrate-executor 2.0.1-gw001",
+  "substrate-inherents 2.0.0",
+  "substrate-keyring 2.0.0",
+  "substrate-offchain-primitives 2.0.0",
+@@ -5532,18 +5495,6 @@ dependencies = [
+  "trie-standardmap 0.15.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ ]
+ 
+-[[package]]
+-name = "substrate-wasm-builder"
+-version = "1.0.7"
+-dependencies = [
+- "build-helper 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
+- "cargo_metadata 0.8.2 (registry+https://github.com/rust-lang/crates.io-index)",
+- "fs2 0.4.3 (registry+https://github.com/rust-lang/crates.io-index)",
+- "tempfile 3.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+- "toml 0.5.3 (registry+https://github.com/rust-lang/crates.io-index)",
+- "walkdir 2.2.9 (registry+https://github.com/rust-lang/crates.io-index)",
+-]
+-
+ [[package]]
+ name = "substrate-wasm-builder-runner"
+ version = "1.0.3"
+@@ -6560,7 +6511,6 @@ dependencies = [
+ "checksum block-padding 0.1.4 (registry+https://github.com/rust-lang/crates.io-index)" = "6d4dc3af3ee2e12f3e5d224e5e1e3d73668abbeb69e566d361f7d5563a4fdf09"
+ "checksum bs58 0.2.5 (registry+https://github.com/rust-lang/crates.io-index)" = "c95ee6bba9d950218b6cc910cf62bc9e0a171d0f4537e3627b0f54d08549b188"
+ "checksum bstr 0.2.8 (registry+https://github.com/rust-lang/crates.io-index)" = "8d6c2c5b58ab920a4f5aeaaca34b4488074e8cc7596af94e6f8c6ff247c60245"
+-"checksum build-helper 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "bdce191bf3fa4995ce948c8c83b4640a1745457a149e73c6db75b4ffe36aad5f"
+ "checksum bumpalo 2.6.0 (registry+https://github.com/rust-lang/crates.io-index)" = "ad807f2fc2bf185eeb98ff3a901bd46dc5ad58163d0fa4577ba0d25674d71708"
+ "checksum byte-slice-cast 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)" = "7cbcbf18128ec71d8d4a0d054461ec59fff5b75b7d10a4c9b7c7cb1a379c3e77"
+ "checksum byte-tools 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "560c32574a12a89ecd91f5e742165893f86e3ab98d21f8ea548658eb9eef5f40"
+@@ -6570,7 +6520,6 @@ dependencies = [
+ "checksum bytes 0.4.12 (registry+https://github.com/rust-lang/crates.io-index)" = "206fdffcfa2df7cbe15601ef46c813fce0965eb3286db6b56c583b814b51c81c"
+ "checksum c2-chacha 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "7d64d04786e0f528460fc884753cf8dddcc466be308f6026f8e355c41a0e4101"
+ "checksum c_linked_list 1.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "4964518bd3b4a8190e832886cdc0da9794f12e8e6c1613a9e90ff331c4c8724b"
+-"checksum cargo_metadata 0.8.2 (registry+https://github.com/rust-lang/crates.io-index)" = "700b3731fd7d357223d0000f4dbf1808401b694609035c3c411fbc0cd375c426"
+ "checksum cast 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "926013f2860c46252efceabb19f4a6b308197505082c609025aa6706c011d427"
+ "checksum cc 1.0.45 (registry+https://github.com/rust-lang/crates.io-index)" = "4fc9a35e1f4290eb9e5fc54ba6cf40671ed2a2514c3eeb2b2a908dda2ea5a1be"
+ "checksum cexpr 0.3.5 (registry+https://github.com/rust-lang/crates.io-index)" = "a7fa24eb00d5ffab90eaeaf1092ac85c04c64aaf358ea6f84505b8116d24c6af"
+@@ -6632,7 +6581,6 @@ dependencies = [
+ "checksum foreign-types 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)" = "f6f339eb8adc052cd2ca78910fda869aefa38d22d5cb648e6485e4d3fc06f3b1"
+ "checksum foreign-types-shared 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "00b0228411908ca8685dba7fc2cdd70ec9990a6e753e89b6ac91a84c40fbaf4b"
+ "checksum fs-swap 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)" = "921d332c89b3b61a826de38c61ee5b6e02c56806cade1b0e5d81bd71f57a71bb"
+-"checksum fs2 0.4.3 (registry+https://github.com/rust-lang/crates.io-index)" = "9564fc758e15025b46aa6643b1b77d047d1a56a1aea6e01002ac0c7026876213"
+ "checksum fuchsia-cprng 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "a06f77d526c1a601b7c4cdd98f54b5eaabffc14d5f2f0296febdc7f357c6d3ba"
+ "checksum fuchsia-zircon 0.3.3 (registry+https://github.com/rust-lang/crates.io-index)" = "2e9763c69ebaae630ba35f74888db465e49e259ba1bc0eda7d06f4a067615d82"
+ "checksum fuchsia-zircon-sys 0.3.3 (registry+https://github.com/rust-lang/crates.io-index)" = "3dcaa9ae7725d12cdb85b3ad99a434db70b468c09ded17e012d86b5c1010f7a7"
+@@ -6871,7 +6819,6 @@ dependencies = [
+ "checksum sct 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)" = "2f5adf8fbd58e1b1b52699dc8bed2630faecb6d8c7bee77d009d6bbe4af569b9"
+ "checksum security-framework 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)" = "eee63d0f4a9ec776eeb30e220f0bc1e092c3ad744b2a379e3993070364d3adc2"
+ "checksum security-framework-sys 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)" = "9636f8989cbf61385ae4824b98c1aaa54c994d7d8b41f11c601ed799f0549a56"
+-"checksum semver 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)" = "7a3186ec9e65071a2095434b1f5bb24838d4e8e130f584c790f6033c79943537"
+ "checksum semver 0.9.0 (registry+https://github.com/rust-lang/crates.io-index)" = "1d7eb9ef2c18661902cc47e535f9bc51b78acd254da71d375c2f6720d9a40403"
+ "checksum semver-parser 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)" = "388a1df253eca08550bef6c72392cfe7c30914bf41df5269b68cbd6ff8f570a3"
+ "checksum send_wrapper 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "a0eddf2e8f50ced781f288c19f18621fa72a3779e3cb58dbf23b07469b0abeb4"
+diff --git a/Cargo.toml b/Cargo.toml
+index a345b880d..bcc974792 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -67,9 +67,9 @@ members = [
+ 	"core/transaction-pool/graph",
+ 	"core/trie",
+ 	"core/utils/fork-tree",
+-	"core/utils/wasm-builder",
+-	"core/utils/wasm-builder-runner",
+-	"core/wasm-interface",
++#	"core/utils/wasm-builder",
++#	"core/utils/wasm-builder-runner",
++#	"core/wasm-interface",
+ 	"srml/support",
+ 	"srml/support/procedural",
+ 	"srml/support/procedural/tools",
+@@ -108,7 +108,7 @@ members = [
+ 	"node/primitives",
+ 	"node/rpc",
+ 	"node/rpc-client",
+-	"node/runtime",
++#	"node/runtime",
+ 	"node/testing",
+ 	"node-template",
+ 	"subkey",
+diff --git a/core/executor/Cargo.toml b/core/executor/Cargo.toml
+index 1f53cd409..7dcb81c0b 100644
+--- a/core/executor/Cargo.toml
++++ b/core/executor/Cargo.toml
+@@ -1,6 +1,6 @@
+ [package]
+ name = "substrate-executor"
+-version = "2.0.0"
++version = "2.0.1-gw001"
+ authors = ["Parity Technologies <admin@parity.io>"]
+ edition = "2018"
+ 
+@@ -21,6 +21,7 @@ parking_lot = "0.9.0"
+ log = "0.4.8"
+ libsecp256k1 = "0.3.0"
+ tiny-keccak = "1.5.0"
++memory_units = "0.3.0"
+ 
+ [dev-dependencies]
+ assert_matches = "1.3.0"
+diff --git a/core/executor/src/allocator.rs b/core/executor/src/allocator.rs
+index 523499db7..292098774 100644
+--- a/core/executor/src/allocator.rs
++++ b/core/executor/src/allocator.rs
+@@ -73,7 +73,7 @@ pub struct FreeingBumpHeapAllocator {
+ 	bumper: u32,
+ 	heads: [u32; N],
+ 	ptr_offset: u32,
+-	total_size: u32,
++	pub total_size: u32,
+ }
+ 
+ /// Create an allocator error.
+diff --git a/core/executor/src/wasm_executor.rs b/core/executor/src/wasm_executor.rs
+index 6ded0adad..e62dc87f5 100644
+--- a/core/executor/src/wasm_executor.rs
++++ b/core/executor/src/wasm_executor.rs
+@@ -36,7 +36,8 @@ use primitives::{
+ };
+ use trie::TrieConfiguration;
+ use trie::trie_types::Layout;
+-use log::trace;
++use log::{info,trace};
++use memory_units;
+ use wasm_interface::{
+ 	FunctionContext, HostFunctions, Pointer, WordSize, Sandbox, MemoryId, PointerType,
+ 	Result as WResult,
+@@ -148,6 +149,12 @@ impl FunctionContext for FunctionExecutor {
+ 		})
+ 	}
+ 
++	fn current_size(&mut self) -> u64 {
++		let num_pages = self.memory.current_size();
++		let used_mem_in_bytes: memory_units::Bytes = num_pages.into();
++		used_mem_in_bytes.0 as u64 + u64::from(self.heap.total_size)
++	}
++
+ 	fn sandbox(&mut self) -> &mut dyn Sandbox {
+ 		self
+ 	}
+@@ -367,12 +374,17 @@ struct SubstrateExternals;
+ impl_wasm_host_interface! {
+ 	impl SubstrateExternals where context {
+ 		ext_malloc(size: WordSize) -> Pointer<u8> {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Memory ext_malloc", file!(), line!());
+ 			let r = context.allocate_memory(size)?;
+ 			debug_trace!(target: "sr-io", "malloc {} bytes at {:?}", size, r);
++			let used_mem = context.current_size();  
++			info!("DEBUG_CS_INSTRUMENTATION_USED_MEM {}:{} used_mem = {:?}", file!(), line!(), used_mem);
++
+ 			Ok(r)
+ 		}
+ 
+ 		ext_free(addr: Pointer<u8>) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Memory ext_free", file!(), line!());
+ 			context.deallocate_memory(addr)?;
+ 			debug_trace!(target: "sr-io", "free {:?}", addr);
+ 			Ok(())
+@@ -386,6 +398,7 @@ impl_wasm_host_interface! {
+ 			imports_len: WordSize,
+ 			state: u32,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Sandbox ext_sandbox_instantiate", file!(), line!());
+ 			let wasm = context.read_memory(wasm_ptr, wasm_len)
+ 				.map_err(|_| "OOB while ext_sandbox_instantiate: wasm")?;
+ 			let raw_env_def = context.read_memory(imports_ptr, imports_len)
+@@ -395,6 +408,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_sandbox_instance_teardown(instance_idx: u32) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Sandbox ext_sandbox_instance_teardown", file!(), line!());
+ 			context.sandbox().instance_teardown(instance_idx)
+ 		}
+ 
+@@ -408,6 +422,7 @@ impl_wasm_host_interface! {
+ 			return_val_len: WordSize,
+ 			state: u32,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Sandbox ext_sandbox_invoke", file!(), line!());
+ 			let export = context.read_memory(export_ptr, export_len)
+ 				.map_err(|_| "OOB while ext_sandbox_invoke: export")
+ 				.and_then(|b|
+@@ -430,6 +445,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_sandbox_memory_new(initial: WordSize, maximum: WordSize) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Sandbox ext_sandbox_memory_new", file!(), line!());
+ 			context.sandbox().memory_new(initial, maximum)
+ 		}
+ 
+@@ -439,6 +455,7 @@ impl_wasm_host_interface! {
+ 			buf_ptr: Pointer<u8>,
+ 			buf_len: WordSize,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Sandbox ext_sandbox_memory_get", file!(), line!());
+ 			context.sandbox().memory_get(memory_idx, offset, buf_ptr, buf_len)
+ 		}
+ 
+@@ -448,14 +465,17 @@ impl_wasm_host_interface! {
+ 			val_ptr: Pointer<u8>,
+ 			val_len: WordSize,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Sandbox ext_sandbox_memory_set", file!(), line!());
+ 			context.sandbox().memory_set(memory_idx, offset, val_ptr, val_len)
+ 		}
+ 
+ 		ext_sandbox_memory_teardown(memory_idx: u32) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Sandbox ext_sandbox_memory_teardown", file!(), line!());
+ 			context.sandbox().memory_teardown(memory_idx)
+ 		}
+ 
+ 		ext_print_utf8(utf8_data: Pointer<u8>, utf8_len: WordSize) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Other ext_print_utf8", file!(), line!());
+ 			if let Ok(utf8) = context.read_memory(utf8_data, utf8_len) {
+ 				runtime_io::print_utf8(&utf8);
+ 			}
+@@ -463,6 +483,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_print_hex(data: Pointer<u8>, len: WordSize) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Other ext_print_hex", file!(), line!());
+ 			if let Ok(hex) = context.read_memory(data, len) {
+ 				runtime_io::print_hex(&hex);
+ 			}
+@@ -470,6 +491,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_print_num(number: u64) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Other ext_print_num", file!(), line!());
+ 			runtime_io::print_num(number);
+ 			Ok(())
+ 		}
+@@ -480,6 +502,7 @@ impl_wasm_host_interface! {
+ 			value_data: Pointer<u8>,
+ 			value_len: WordSize,
+ 		) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_set_storage", file!(), line!());
+ 			let key = context.read_memory(key_data, key_len)
+ 				.map_err(|_| "Invalid attempt to determine key in ext_set_storage")?;
+ 			let value = context.read_memory(value_data, value_len)
+@@ -498,6 +521,7 @@ impl_wasm_host_interface! {
+ 			value_data: Pointer<u8>,
+ 			value_len: WordSize,
+ 		) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_set_child_storage", file!(), line!());
+ 			let storage_key = context.read_memory(storage_key_data, storage_key_len)
+ 				.map_err(|_| "Invalid attempt to determine storage_key in ext_set_child_storage")?;
+ 			let key = context.read_memory(key_data, key_len)
+@@ -517,6 +541,7 @@ impl_wasm_host_interface! {
+ 			key_data: Pointer<u8>,
+ 			key_len: WordSize,
+ 		) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_clear_child_storage", file!(), line!());
+ 			let storage_key = context.read_memory(storage_key_data, storage_key_len)
+ 				.map_err(|_| "Invalid attempt to determine storage_key in ext_clear_child_storage")?;
+ 			let key = context.read_memory(key_data, key_len)
+@@ -529,6 +554,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_clear_storage(key_data: Pointer<u8>, key_len: WordSize) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_clear_storage", file!(), line!());
+ 			let key = context.read_memory(key_data, key_len)
+ 				.map_err(|_| "Invalid attempt to determine key in ext_clear_storage")?;
+ 			with_external_storage(move ||
+@@ -538,6 +564,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_exists_storage(key_data: Pointer<u8>, key_len: WordSize) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_exists_storage", file!(), line!());
+ 			let key = context.read_memory(key_data, key_len)
+ 				.map_err(|_| "Invalid attempt to determine key in ext_exists_storage")?;
+ 			with_external_storage(move ||
+@@ -551,6 +578,7 @@ impl_wasm_host_interface! {
+ 			key_data: Pointer<u8>,
+ 			key_len: WordSize,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_exists_child_storage", file!(), line!());
+ 			let storage_key = context.read_memory(storage_key_data, storage_key_len)
+ 				.map_err(|_| "Invalid attempt to determine storage_key in ext_exists_child_storage")?;
+ 			let key = context.read_memory(key_data, key_len)
+@@ -562,6 +590,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_clear_prefix(prefix_data: Pointer<u8>, prefix_len: WordSize) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_clear_prefix", file!(), line!());
+ 			let prefix = context.read_memory(prefix_data, prefix_len)
+ 				.map_err(|_| "Invalid attempt to determine prefix in ext_clear_prefix")?;
+ 			with_external_storage(move ||
+@@ -576,6 +605,7 @@ impl_wasm_host_interface! {
+ 			prefix_data: Pointer<u8>,
+ 			prefix_len: WordSize,
+ 		) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_clear_child_prefix", file!(), line!());
+ 			let storage_key = context.read_memory(storage_key_data, storage_key_len)
+ 				.map_err(|_| "Invalid attempt to determine storage_key in ext_clear_child_prefix")?;
+ 			let prefix = context.read_memory(prefix_data, prefix_len)
+@@ -588,6 +618,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_kill_child_storage(storage_key_data: Pointer<u8>, storage_key_len: WordSize) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_kill_child_storage", file!(), line!());
+ 			let storage_key = context.read_memory(storage_key_data, storage_key_len)
+ 				.map_err(|_| "Invalid attempt to determine storage_key in ext_kill_child_storage")?;
+ 			with_external_storage(move ||
+@@ -602,6 +633,7 @@ impl_wasm_host_interface! {
+ 			key_len: WordSize,
+ 			written_out: Pointer<u32>,
+ 		) -> Pointer<u8> {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_get_allocated_storage", file!(), line!());
+ 			let key = context.read_memory(key_data, key_len)
+ 				.map_err(|_| "Invalid attempt to determine key in ext_get_allocated_storage")?;
+ 			let maybe_value = with_external_storage(move ||
+@@ -629,6 +661,7 @@ impl_wasm_host_interface! {
+ 			key_len: WordSize,
+ 			written_out: Pointer<u32>,
+ 		) -> Pointer<u8> {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_get_allocated_child_storage", file!(), line!());
+ 			let storage_key = context.read_memory(storage_key_data, storage_key_len)
+ 				.map_err(|_| "Invalid attempt to determine storage_key in ext_get_allocated_child_storage")?;
+ 			let key = context.read_memory(key_data, key_len)
+@@ -659,6 +692,7 @@ impl_wasm_host_interface! {
+ 			value_len: WordSize,
+ 			value_offset: WordSize,
+ 		) -> WordSize {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_get_storage_into", file!(), line!());
+ 			let key = context.read_memory(key_data, key_len)
+ 				.map_err(|_| "Invalid attempt to get key in ext_get_storage_into")?;
+ 			let maybe_value = with_external_storage(move ||
+@@ -685,6 +719,7 @@ impl_wasm_host_interface! {
+ 			value_len: WordSize,
+ 			value_offset: WordSize,
+ 		) -> WordSize {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_get_child_storage_into", file!(), line!());
+ 			let storage_key = context.read_memory(storage_key_data, storage_key_len)
+ 				.map_err(|_| "Invalid attempt to determine storage_key in ext_get_child_storage_into")?;
+ 			let key = context.read_memory(key_data, key_len)
+@@ -706,6 +741,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_storage_root(result: Pointer<u8>) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_storage_root", file!(), line!());
+ 			let r = with_external_storage(move ||
+ 				Ok(runtime_io::storage_root())
+ 			)?;
+@@ -719,6 +755,7 @@ impl_wasm_host_interface! {
+ 			storage_key_len: WordSize,
+ 			written_out: Pointer<u32>,
+ 		) -> Pointer<u8> {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_child_storage_root", file!(), line!());
+ 			let storage_key = context.read_memory(storage_key_data, storage_key_len)
+ 				.map_err(|_| "Invalid attempt to determine storage_key in ext_child_storage_root")?;
+ 			let value = with_external_storage(move ||
+@@ -738,6 +775,7 @@ impl_wasm_host_interface! {
+ 			_len: WordSize,
+ 			result: Pointer<u8>,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_storage_changes_root", file!(), line!());
+ 			let mut parent_hash = [0u8; 32];
+ 			context.read_memory_into(parent_hash_data, &mut parent_hash[..])
+ 				.map_err(|_| "Invalid attempt to get parent_hash in ext_storage_changes_root")?;
+@@ -760,6 +798,7 @@ impl_wasm_host_interface! {
+ 			lens_len: WordSize,
+ 			result: Pointer<u8>,
+ 		) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Storage ext_blake2_256_enumerated_trie_root", file!(), line!());
+ 			let values = (0..lens_len)
+ 				.map(|i| context.read_primitive(lens_data.offset(i).ok_or("Pointer overflow")?))
+ 				.collect::<std::result::Result<Vec<u32>, _>>()?
+@@ -779,10 +818,12 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_chain_id() -> u64 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Other ext_chain_id", file!(), line!());
+ 			Ok(runtime_io::chain_id())
+ 		}
+ 
+ 		ext_twox_64(data: Pointer<u8>, len: WordSize, out: Pointer<u8>) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Hash ext_twox_64", file!(), line!());
+ 			let result: [u8; 8] = if len == 0 {
+ 				let hashed = twox_64(&[0u8; 0]);
+ 				hashed
+@@ -799,6 +840,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_twox_128(data: Pointer<u8>, len: WordSize, out: Pointer<u8>) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Hash ext_twox_128", file!(), line!());
+ 			let result: [u8; 16] = if len == 0 {
+ 				let hashed = twox_128(&[0u8; 0]);
+ 				hashed
+@@ -815,6 +857,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_twox_256(data: Pointer<u8>, len: WordSize, out: Pointer<u8>) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Hash ext_twox_256", file!(), line!());
+ 			let result: [u8; 32] = if len == 0 {
+ 				twox_256(&[0u8; 0])
+ 			} else {
+@@ -828,6 +871,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_blake2_128(data: Pointer<u8>, len: WordSize, out: Pointer<u8>) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Hash ext_blake2_128", file!(), line!());
+ 			let result: [u8; 16] = if len == 0 {
+ 				let hashed = blake2_128(&[0u8; 0]);
+ 				hashed
+@@ -844,6 +888,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_blake2_256(data: Pointer<u8>, len: WordSize, out: Pointer<u8>) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Hash ext_blake2_256", file!(), line!());
+ 			let result: [u8; 32] = if len == 0 {
+ 				blake2_256(&[0u8; 0])
+ 			} else {
+@@ -857,6 +902,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_keccak_256(data: Pointer<u8>, len: WordSize, out: Pointer<u8>) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Hash ext_keccak_256", file!(), line!());
+ 			let result: [u8; 32] = if len == 0 {
+ 				tiny_keccak::keccak256(&[0u8; 0])
+ 			} else {
+@@ -870,6 +916,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_ed25519_public_keys(id_data: Pointer<u8>, result_len: Pointer<u32>) -> Pointer<u8> {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Crypto ext_ed25519_public_keys", file!(), line!());
+ 			let mut id = [0u8; 4];
+ 			context.read_memory_into(id_data, &mut id[..])
+ 				.map_err(|_| "Invalid attempt to get id in ext_ed25519_public_keys")?;
+@@ -894,6 +941,7 @@ impl_wasm_host_interface! {
+ 			sig_data: Pointer<u8>,
+ 			pubkey_data: Pointer<u8>,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Crypto ext_ed25519_verify", file!(), line!());
+ 			let mut sig = [0u8; 64];
+ 			context.read_memory_into(sig_data, &mut sig[..])
+ 				.map_err(|_| "Invalid attempt to get signature in ext_ed25519_verify")?;
+@@ -916,6 +964,7 @@ impl_wasm_host_interface! {
+ 			seed_len: WordSize,
+ 			out: Pointer<u8>,
+ 		) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Crypto ext_ed25519_generate", file!(), line!());
+ 			let mut id = [0u8; 4];
+ 			context.read_memory_into(id_data, &mut id[..])
+ 				.map_err(|_| "Invalid attempt to get id in ext_ed25519_generate")?;
+@@ -949,6 +998,7 @@ impl_wasm_host_interface! {
+ 			msg_len: WordSize,
+ 			out: Pointer<u8>,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Crypto ext_ed25519_sign", file!(), line!());
+ 			let mut id = [0u8; 4];
+ 			context.read_memory_into(id_data, &mut id[..])
+ 				.map_err(|_| "Invalid attempt to get id in ext_ed25519_sign")?;
+@@ -977,6 +1027,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_sr25519_public_keys(id_data: Pointer<u8>, result_len: Pointer<u32>) -> Pointer<u8> {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Crypto ext_ed25519_public_keys", file!(), line!());
+ 			let mut id = [0u8; 4];
+ 			context.read_memory_into(id_data, &mut id[..])
+ 				.map_err(|_| "Invalid attempt to get id in ext_sr25519_public_keys")?;
+@@ -1001,6 +1052,7 @@ impl_wasm_host_interface! {
+ 			sig_data: Pointer<u8>,
+ 			pubkey_data: Pointer<u8>,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Crypto ext_ed25519_verify", file!(), line!());
+ 			let mut sig = [0u8; 64];
+ 			context.read_memory_into(sig_data, &mut sig[..])
+ 				.map_err(|_| "Invalid attempt to get signature in ext_sr25519_verify")?;
+@@ -1023,6 +1075,7 @@ impl_wasm_host_interface! {
+ 			seed_len: WordSize,
+ 			out: Pointer<u8>,
+ 		) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Crypto ext_ed25519_generate", file!(), line!());
+ 			let mut id = [0u8; 4];
+ 			context.read_memory_into(id_data, &mut id[..])
+ 				.map_err(|_| "Invalid attempt to get id in ext_sr25519_generate")?;
+@@ -1056,6 +1109,7 @@ impl_wasm_host_interface! {
+ 			msg_len: WordSize,
+ 			out: Pointer<u8>,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Crypto ext_ed25519_sign", file!(), line!());
+ 			let mut id = [0u8; 4];
+ 			context.read_memory_into(id_data, &mut id[..])
+ 				.map_err(|_| "Invalid attempt to get id in ext_sr25519_sign")?;
+@@ -1088,6 +1142,7 @@ impl_wasm_host_interface! {
+ 			sig_data: Pointer<u8>,
+ 			pubkey_data: Pointer<u8>,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Crypto ext_secp256k1_ecdsa_recover", file!(), line!());
+ 			let mut sig = [0u8; 65];
+ 			context.read_memory_into(sig_data, &mut sig[..])
+ 				.map_err(|_| "Invalid attempt to get signature in ext_secp256k1_ecdsa_recover")?;
+@@ -1118,10 +1173,12 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_is_validator() -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_is_validator", file!(), line!());
+ 			if runtime_io::is_validator() { Ok(1) } else { Ok(0) }
+ 		}
+ 
+ 		ext_submit_transaction(msg_data: Pointer<u8>, len: WordSize) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_submit_transaction", file!(), line!());
+ 			let extrinsic = context.read_memory(msg_data, len)
+ 				.map_err(|_| "OOB while ext_submit_transaction: wasm")?;
+ 
+@@ -1131,6 +1188,7 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_network_state(written_out: Pointer<u32>) -> Pointer<u8> {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_network_state", file!(), line!());
+ 			let res = runtime_io::network_state();
+ 
+ 			let encoded = res.encode();
+@@ -1146,15 +1204,18 @@ impl_wasm_host_interface! {
+ 		}
+ 
+ 		ext_timestamp() -> u64 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_timestamp", file!(), line!());
+ 			Ok(runtime_io::timestamp().unix_millis())
+ 		}
+ 
+ 		ext_sleep_until(deadline: u64) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_sleep_until", file!(), line!());
+ 			runtime_io::sleep_until(offchain::Timestamp::from_unix_millis(deadline));
+ 			Ok(())
+ 		}
+ 
+ 		ext_random_seed(seed_data: Pointer<u8>) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_random_seed", file!(), line!());
+ 			// NOTE the runtime as assumptions about seed size.
+ 			let seed = runtime_io::random_seed();
+ 
+@@ -1170,6 +1231,7 @@ impl_wasm_host_interface! {
+ 			value: Pointer<u8>,
+ 			value_len: WordSize,
+ 		) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_local_storage_set", file!(), line!());
+ 			let kind = offchain::StorageKind::try_from(kind)
+ 					.map_err(|_| "storage kind OOB while ext_local_storage_set: wasm")?;
+ 			let key = context.read_memory(key, key_len)
+@@ -1188,6 +1250,7 @@ impl_wasm_host_interface! {
+ 			key_len: WordSize,
+ 			value_len: Pointer<u32>,
+ 		) -> Pointer<u8> {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_local_storage_get", file!(), line!());
+ 			let kind = offchain::StorageKind::try_from(kind)
+ 					.map_err(|_| "storage kind OOB while ext_local_storage_get: wasm")?;
+ 			let key = context.read_memory(key, key_len)
+@@ -1219,6 +1282,7 @@ impl_wasm_host_interface! {
+ 			new_value: Pointer<u8>,
+ 			new_value_len: WordSize,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_local_storage_compare_and_set", file!(), line!());
+ 			let kind = offchain::StorageKind::try_from(kind)
+ 					.map_err(|_| "storage kind OOB while ext_local_storage_compare_and_set: wasm")?;
+ 			let key = context.read_memory(key, key_len)
+@@ -1253,6 +1317,7 @@ impl_wasm_host_interface! {
+ 			meta: Pointer<u8>,
+ 			meta_len: WordSize,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_http_request_start", file!(), line!());
+ 			let method = context.read_memory(method, method_len)
+ 				.map_err(|_| "OOB while ext_http_request_start: wasm")?;
+ 			let url = context.read_memory(url, url_len)
+@@ -1281,6 +1346,7 @@ impl_wasm_host_interface! {
+ 			value: Pointer<u8>,
+ 			value_len: WordSize,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_http_request_add_header", file!(), line!());
+ 			let name = context.read_memory(name, name_len)
+ 				.map_err(|_| "OOB while ext_http_request_add_header: wasm")?;
+ 			let value = context.read_memory(value, value_len)
+@@ -1306,6 +1372,7 @@ impl_wasm_host_interface! {
+ 			chunk_len: WordSize,
+ 			deadline: u64,
+ 		) -> u32 {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_http_request_write_body", file!(), line!());
+ 			let chunk = context.read_memory(chunk, chunk_len)
+ 				.map_err(|_| "OOB while ext_http_request_write_body: wasm")?;
+ 
+@@ -1327,6 +1394,7 @@ impl_wasm_host_interface! {
+ 			statuses: Pointer<u32>,
+ 			deadline: u64,
+ 		) {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_http_response_wait", file!(), line!());
+ 			let ids = (0..ids_len)
+ 				.map(|i|
+ 					 context.read_primitive(ids.offset(i).ok_or("Point overflow")?)
+@@ -1354,6 +1422,7 @@ impl_wasm_host_interface! {
+ 			request_id: u32,
+ 			written_out: Pointer<u32>,
+ 		) -> Pointer<u8> {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_http_response_headers", file!(), line!());
+ 			use codec::Encode;
+ 
+ 			let headers = runtime_io::http_response_headers(offchain::HttpRequestId(request_id as u16));
+@@ -1376,6 +1445,7 @@ impl_wasm_host_interface! {
+ 			buffer_len: WordSize,
+ 			deadline: u64,
+ 		) -> WordSize {
++			info!("DEBUG_CS_INSTRUMENTATION {}:{} TAG_Offchain ext_http_response_read_body", file!(), line!());
+ 			let mut internal_buffer = Vec::with_capacity(buffer_len as usize);
+ 			internal_buffer.resize(buffer_len as usize, 0);
+ 
+@@ -1552,6 +1622,7 @@ impl WasmExecutor {
+ 		let table: Option<TableRef> = module_instance
+ 			.export_by_name("__indirect_function_table")
+ 			.and_then(|e| e.as_table().cloned());
++
+ 		let heap_base = Self::get_heap_base(module_instance)?;
+ 
+ 		let mut fec = FunctionExecutor::new(
+@@ -1565,6 +1636,11 @@ impl WasmExecutor {
+ 			fec.write_memory(offset, data).map(|_| offset.into()).map_err(Into::into)
+ 		})?;
+ 
++		// Print initial memory consumption
++		let used_mem = memory.current_size();  
++		let used_mem_in_bytes: memory_units::Bytes = used_mem.into();
++		info!("DEBUG_CS_INSTRUMENTATION_USED_MEM {}:{} used_mem = {:?}", file!(), line!(), used_mem_in_bytes.0);
++
+ 		let result = runtime_io::with_externalities(
+ 			ext,
+ 			|| module_instance.invoke_export(method, &parameters, &mut fec),
+diff --git a/core/state-machine/src/backend.rs b/core/state-machine/src/backend.rs
+index e2f398ef7..d4ea1fc77 100644
+--- a/core/state-machine/src/backend.rs
++++ b/core/state-machine/src/backend.rs
+@@ -72,6 +72,7 @@ pub trait Backend<H: Hasher>: std::fmt::Debug {
+ 	/// Retrieve all entries keys which start with the given prefix and
+ 	/// call `f` for each of those keys.
+ 	fn for_keys_with_prefix<F: FnMut(&[u8])>(&self, prefix: &[u8], mut f: F) {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		self.for_key_values_with_prefix(prefix, |k, _v| f(k))
+ 	}
+ 
+@@ -105,6 +106,7 @@ pub trait Backend<H: Hasher>: std::fmt::Debug {
+ 
+ 	/// Get all keys with given prefix
+ 	fn keys(&self, prefix: &[u8]) -> Vec<Vec<u8>> {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		let mut all = Vec::new();
+ 		self.for_keys_with_prefix(prefix, |k| all.push(k.to_vec()));
+ 		all
+@@ -112,6 +114,7 @@ pub trait Backend<H: Hasher>: std::fmt::Debug {
+ 
+ 	/// Get all keys of child storage with given prefix
+ 	fn child_keys(&self, child_storage_key: &[u8], prefix: &[u8]) -> Vec<Vec<u8>> {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		let mut all = Vec::new();
+ 		self.for_child_keys_with_prefix(child_storage_key, prefix, |k| all.push(k.to_vec()));
+ 		all
+@@ -119,6 +122,7 @@ pub trait Backend<H: Hasher>: std::fmt::Debug {
+ 
+ 	/// Try convert into trie backend.
+ 	fn as_trie_backend(&mut self) -> Option<&TrieBackend<Self::TrieBackendStorage, H>> {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		None
+ 	}
+ 
+@@ -175,10 +179,12 @@ impl<'a, T: Backend<H>, H: Hasher> Backend<H> for &'a T {
+ 	}
+ 
+ 	fn for_keys_with_prefix<F: FnMut(&[u8])>(&self, prefix: &[u8], f: F) {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		(*self).for_keys_with_prefix(prefix, f)
+ 	}
+ 
+ 	fn for_child_keys_with_prefix<F: FnMut(&[u8])>(&self, storage_key: &[u8], prefix: &[u8], f: F) {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		(*self).for_child_keys_with_prefix(storage_key, prefix, f)
+ 	}
+ 
+@@ -199,10 +205,12 @@ impl<'a, T: Backend<H>, H: Hasher> Backend<H> for &'a T {
+ 	}
+ 
+ 	fn pairs(&self) -> Vec<(Vec<u8>, Vec<u8>)> {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		(*self).pairs()
+ 	}
+ 
+ 	fn for_key_values_with_prefix<F: FnMut(&[u8], &[u8])>(&self, prefix: &[u8], f: F) {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		(*self).for_key_values_with_prefix(prefix, f);
+ 	}
+ }
+diff --git a/core/state-machine/src/ext.rs b/core/state-machine/src/ext.rs
+index c4a2bd7f6..e366d0ba0 100644
+--- a/core/state-machine/src/ext.rs
++++ b/core/state-machine/src/ext.rs
+@@ -356,6 +356,7 @@ where	H: Hasher,
+ 	}
+ 
+ 	fn clear_prefix(&mut self, prefix: &[u8]) {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		trace!(target: "state-trace", "{:04x}: ClearPrefix {}",
+ 			self.id,
+ 			HexDisplay::from(&prefix),
+@@ -374,6 +375,7 @@ where	H: Hasher,
+ 	}
+ 
+ 	fn clear_child_prefix(&mut self, storage_key: ChildStorageKey, prefix: &[u8]) {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		trace!(target: "state-trace", "{:04x}: ClearChildPrefix({}) {}",
+ 			self.id,
+ 			HexDisplay::from(&storage_key.as_ref()),
+@@ -389,6 +391,7 @@ where	H: Hasher,
+ 	}
+ 
+ 	fn chain_id(&self) -> u64 {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		42
+ 	}
+ 
+@@ -483,10 +486,12 @@ where	H: Hasher,
+ 	}
+ 
+ 	fn offchain(&mut self) -> Option<&mut dyn offchain::Externalities> {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		self.offchain_externalities.as_mut().map(|x| &mut **x as _)
+ 	}
+ 
+ 	fn keystore(&self) -> Option<BareCryptoStorePtr> {
++		info!("DEBUG_CS_INSTRUMENTATION {}:{}", file!(), line!());
+ 		self.keystore.clone()
+ 	}
+ 
+diff --git a/core/state-machine/src/lib.rs b/core/state-machine/src/lib.rs
+index 5220b4b31..3d214df43 100644
+--- a/core/state-machine/src/lib.rs
++++ b/core/state-machine/src/lib.rs
+@@ -17,6 +17,7 @@
+ //! Substrate state machine implementation.
+ 
+ #![warn(missing_docs)]
++#[macro_use] extern crate log;
+ 
+ use std::{
+ 	fmt, result, collections::HashMap,
+diff --git a/core/wasm-interface/src/lib.rs b/core/wasm-interface/src/lib.rs
+index b3cbde556..7b6bde468 100644
+--- a/core/wasm-interface/src/lib.rs
++++ b/core/wasm-interface/src/lib.rs
+@@ -201,6 +201,8 @@ pub trait FunctionContext {
+ 	fn allocate_memory(&mut self, size: WordSize) -> Result<Pointer<u8>>;
+ 	/// Deallocate a given memory instance.
+ 	fn deallocate_memory(&mut self, ptr: Pointer<u8>) -> Result<()>;
++	/// Get current size of memory. 
++	fn current_size(&mut self) -> u64;
+ 	/// Provides access to the sandbox.
+ 	fn sandbox(&mut self) -> &mut dyn Sandbox;
+ }
+diff --git a/node/runtime/Cargo.toml b/node/runtime/Cargo.toml
+index 9b794130e..6befaf713 100644
+--- a/node/runtime/Cargo.toml
++++ b/node/runtime/Cargo.toml
+@@ -49,8 +49,8 @@ system = { package = "srml-system", path = "../../srml/system", default-features
+ timestamp = { package = "srml-timestamp", path = "../../srml/timestamp", default-features = false }
+ treasury = { package = "srml-treasury", path = "../../srml/treasury", default-features = false }
+ 
+-[build-dependencies]
+-wasm-builder-runner = { package = "substrate-wasm-builder-runner", version = "1.0.2", path = "../../core/utils/wasm-builder-runner" }
++#[build-dependencies]
++#wasm-builder-runner = { package = "substrate-wasm-builder-runner", version = "1.0.2", path = "../../core/utils/wasm-builder-runner" }
+ 
+ [features]
+ default = ["std"]
+diff --git a/srml/im-online/src/lib.rs b/srml/im-online/src/lib.rs
+index 84c95fee4..9486d7abd 100644
+--- a/srml/im-online/src/lib.rs
++++ b/srml/im-online/src/lib.rs
+@@ -181,10 +181,10 @@ pub type AuthIndex = u32;
+ pub struct Heartbeat<BlockNumber>
+ 	where BlockNumber: PartialEq + Eq + Decode + Encode,
+ {
+-	block_number: BlockNumber,
+-	network_state: OpaqueNetworkState,
+-	session_index: SessionIndex,
+-	authority_index: AuthIndex,
++	pub block_number: BlockNumber,
++	pub network_state: OpaqueNetworkState,
++	pub session_index: SessionIndex,
++	pub authority_index: AuthIndex,
+ }
+ 
+ pub trait Trait: system::Trait + session::historical::Trait {

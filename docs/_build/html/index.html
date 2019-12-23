@@ -1,0 +1,247 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PolPatrol: validator for Polkadot runtimes &mdash; PolPatrol  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="PolPatrol  documentation" href="#"/>
+        <link rel="next" title="Getting started" href="getting-started.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> PolPatrol
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">The PolPatrol tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">PolPatrol</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>PolPatrol: validator for Polkadot runtimes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <a class="reference internal image-reference" href="_images/polpatrol.png"><img alt="_images/polpatrol.png" src="_images/polpatrol.png" style="width: 600px;" /></a>
+<div class="section" id="polpatrol-validator-for-polkadot-runtimes">
+<h1>PolPatrol: validator for Polkadot runtimes<a class="headerlink" href="#polpatrol-validator-for-polkadot-runtimes" title="Permalink to this headline">¶</a></h1>
+<p>The Polkadot relay-chain runtime is the core of the Polkadot network. Ensuring that its implementation is secure and functionally correct is of critical importance for the entire Polkadot network. The relay-chain runtime allows updates of its implementation, i.e., replacing the current relay-chain WebAssembly binary (or, Wasm blob for short) with a new one. The security and correctness of new relay-chain runtimes will, therefore, be repeatedly tested in the future.</p>
+<p><em>PolPatrol</em> is a tool for validating and testing Polkadot runtimes. The current version of PolPatrol is designed to test the stability and security of relay-chain runtimes with respect to generic security and performance properties.</p>
+<div class="section" id="who-should-use-polpatrol">
+<h2>Who should use PolPatrol?<a class="headerlink" href="#who-should-use-polpatrol" title="Permalink to this headline">¶</a></h2>
+<p>PolPatrol will be primarily used by two user groups:</p>
+<ol class="arabic simple">
+<li>Developers of new relay-chain runtimes who would like to test the correctness of their code.</li>
+<li>DOT token holders who can vote on newly proposed relay-chain runtimes and would like to check whether a proposed runtime is safe and secure.</li>
+</ol>
+<p>For both user groups, PolPatrol automatically analyzes any given relay-chain Wasm blob and warns users upon violation of important security and performance properties.</p>
+</div>
+<div class="section" id="how-does-it-work">
+<h2>How does it work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h2>
+<p>PolPatrol uses an instrumented Polkadot runtime environment to run the provided relay-chain runtime and log all calls that it makes to the environment. In addition to the calls, it also monitors important performance metrics such as execution time and memory usage. This enables PolPatrol to check arbitrary trace properties (such as typestate properties on how the runtime interacts with the environment) and performance properties (average and peak execution time and memory usage). PolPatrol aggregates the collected runtime information to let developers draw conclusions on the overall behavior of the runtime and compare different implementations.</p>
+</div>
+<div class="section" id="what-s-next">
+<h2>What&#8217;s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
+<p>PolPatrol is a proof-of-concept tool that can be extended with <em>fuzzing</em> capabilities (to automatically generate inputs for the runtime) and <em>dynamic analysis</em> (to amplify the results of the observed execution traces). For details on possible extensions, please refer to our <a class="reference internal" href="system.html#future-work"><span>Future Work</span></a> section.</p>
+<div class="toctree-wrapper compound" id="contents">
+<p class="caption"><span class="caption-text">Contents:</span><a class="headerlink" href="#contents" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#supported-runtimes-available-examples">Supported runtimes &amp; available examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#test-your-own-runtime">Test your own runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">The PolPatrol tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="system.html#high-level-overview">High-level overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system.html#test-generation">Test generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system.html#test-execution">Test execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system.html#instrumentation">Instrumentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system.html#limitations">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system.html#future-work">Future Work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributors.html#contact">Contact</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="getting-started.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, ChainSecurity.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

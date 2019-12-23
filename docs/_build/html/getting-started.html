@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting started &mdash; PolPatrol  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="PolPatrol  documentation" href="index.html"/>
+        <link rel="next" title="The PolPatrol tool" href="system.html"/>
+        <link rel="prev" title="PolPatrol: validator for Polkadot runtimes" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PolPatrol
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building">Building</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build">Build</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-runtimes-available-examples">Supported runtimes &amp; available examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-your-own-runtime">Test your own runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">The PolPatrol tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">PolPatrol</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Getting started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/getting-started.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>Polkadot is a multichain where the Polkadot <em>relay-chain</em> is the core chain connecting different <em>parachains</em>. The parachains can implement arbitrary blockchains with custom functionality and architecture.</p>
+<p>A <em>runtime</em> is at the heart of each chain, no matter if it is a relay-chain or parachain. Each runtime is a Wasm blob that is executed within a runtime environment. The relay-chain runtime is executed within the Polkadot Runtime Environment (PRE), which provides access to the network, state storage, and memory.</p>
+<p>The Polkadot relay-chain runtime consists of multiple modules, each dedicated to performing a specific task. Examples modules are <cite>Balances</cite>, <cite>Council</cite>, and <cite>Parachains</cite>. Some of these modules are imported from the Substrate Runtime Module Library (SRML), while others are implemented specifically for the Polkadot relay-chain. Modules can define call functions, storage entries, and events.</p>
+<p><em>Extrinsics</em> are described as <em>pieces of information from the outside world</em> that are contained in the blocks. When an Extrinsics is applied, it invokes a function call of a module. This happens either if the extrinsic is applied with <cite>BlockBuilder_apply_extrinsic</cite> during the building of a new block or applied inside a block in <cite>core_execute_block</cite>.
+There are two types of Unchecked extrinsics:</p>
+<ul class="simple">
+<li><em>Signed</em> extrinsics: These are generally known as transactions. These must be signed by the respective account to be considered valid.</li>
+<li><em>Inherent</em> extrinsics: These specify information (such as an update of the Timestamp) that a block producer may add to the block.</li>
+</ul>
+<div class="section" id="building">
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Rust 2018</li>
+<li>polkadot_mod</li>
+<li>substrate_mod</li>
+</ul>
+</div>
+<div class="section" id="build">
+<h3>Build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h3>
+<p>To build PolPatrol, execute the following command from the root folder of the project:</p>
+<div class="highlight-bash"><div class="highlight"><pre>git submodule update --init --recursive
+cargo build --release
+</pre></div>
+</div>
+<p>The above command generates an executable called <cite>runtime-checker</cite> in folder <cite>target/build</cite>.</p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>./target/release/runtime-checker
+</pre></div>
+</div>
+<p>Runs the tool using the default values on the default runtime.</p>
+<div class="highlight-bash"><div class="highlight"><pre>./target/release/runtime-checker --help
+</pre></div>
+</div>
+<p>Displays information about available cmd line parameters.</p>
+<p>The most important cmd line options are the following:</p>
+<div class="highlight-bash"><div class="highlight"><pre>-g, --genesisfile
+</pre></div>
+</div>
+<p>Allows to specify the genesis file defining the initial state of the storage</p>
+<div class="highlight-bash"><div class="highlight"><pre>-r, --runtimefile
+</pre></div>
+</div>
+<p>Allows to specify the relay chain runtime wasm file to be tested</p>
+<div class="highlight-bash"><div class="highlight"><pre>-n, --num
+</pre></div>
+</div>
+<p>Allows to specify the number of unchecked extrinsics to be include per Block (default: 3)</p>
+<div class="highlight-bash"><div class="highlight"><pre>-s, --seed
+</pre></div>
+</div>
+<p>Allows to specify the seed for the random generator as u64 (default: 0)</p>
+</div>
+<div class="section" id="supported-runtimes-available-examples">
+<h2>Supported runtimes &amp; available examples<a class="headerlink" href="#supported-runtimes-available-examples" title="Permalink to this headline">¶</a></h2>
+<p>The tool depends heavily on the datatypes used by the runtime under test, as these are passed as an argument and received as a return value (scale-encoded). Therefore it is vital that the datatypes match as otherwise unexpected errors will occur.</p>
+<p>To avoid any such issue, PolPatrol should be compiled including the Polkadot and
+Substrate dependencies at the very same commit as the runtime to be tested does.</p>
+<p>The provided version of the tools is based on following commits:</p>
+<p><cite>73104d3ae1ec061c4efd981a83cdd09104ba159f</cite> for Substrate
+<cite>d517dbeb1d27b8068952e086c9ae472d49b707bd</cite> for Polkadot</p>
+<p>and works with any runtime using the datatypes as defined in these commits.</p>
+<p>Some example runtimes are available in <cite>/res</cite>:</p>
+<p><cite>polkadot_runtime.compactnewsnoonlystakingandclaims.wasm</cite> The Polkadot runtime, modified. The <cite>OnlyStakingAndClaims</cite> check has been deactivated to allow successful calls to all included modules.</p>
+<p><cite>polkadot_runtime.compactcontaininginifiniteloopslotsbid.wasm</cite> The Polkadot runtime, modified. The <cite>OnlyStakingAndClaims</cite> check has been deactivated and an infinite loop has been added inside the <cite>bid()</cite> function of the <cite>slots</cite> module.</p>
+<p><cite>polkadot_runtime.compact_memoryleak_slotsbid_release.wasm</cite> The Polkadot runtime, modified. The <cite>OnlyStakingAndClaims</cite> check has been deactivated and an infinite loop writing to memory has been added inside the <cite>bid()</cite> function of the <cite>slots</cite> module.</p>
+<p>Note that other <cite>.wasm</cite> files inside the <cite>/res</cite> folder, such as <cite>adder.compact.wasm</cite>, are para-chain runtimes that are used as inputs for tests and not meant as example runtimes for PolPatrol.</p>
+</div>
+<div class="section" id="test-your-own-runtime">
+<h2>Test your own runtime<a class="headerlink" href="#test-your-own-runtime" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned above, it&#8217;s important that the datatypes of objects exchanged between the runtime blob and the tool match, or decoding may fail. To support your runtime, build
+PolPatrol including the Substrate and Polkadot repositories at the same commit as used for the runtime to be tested.</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre>cargo build --release
+./target/release -r /path/to/your/runtime.wasm
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="system.html" class="btn btn-neutral float-right" title="The PolPatrol tool" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="PolPatrol: validator for Polkadot runtimes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, ChainSecurity.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

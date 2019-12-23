@@ -1,0 +1,304 @@
+[package]
+name = "polpatrol"
+version = "0.1.0"
+authors = ["Dominic Bruetsch <dominic@chainsecurity.com>", "Grzegorz Wierzowiecki <gw@chainsecurity.com>", "Chainsecurity <contact@chainsecurity.com>"]
+edition = "2018"
+
+[dependencies]
+bitvec = { version = "0.14.0", default-features = false, features = ["alloc"] }
+trie-db = { version = "0.15.2", default-features = false }
+serde = "1.0.99"
+codec = {package = "parity-scale-codec", version = "1.0.0" }
+hex-literal = "0.2.0"
+hash-db = { version = "0.15.2", default-features = false }
+structopt = "0.3.4"
+rand = "0.6"
+regex = "1.3.1"
+log = "*"
+env_logger = "*"
+
+substrate_executor = { package = "substrate-executor",  git = "https://github.com/paritytech/substrate.git" }
+substrate_state_machine = { package = "substrate-state-machine", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_service= { package = "substrate-service", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_sr_primitives = { package = "sr-primitives", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_primitives = { package = "substrate-primitives", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_inherents = { package = "substrate-inherents", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_sr_timestamp = { package = "srml-timestamp", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_sr_balances = { package = "srml-balances", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_keyring = { package = "substrate-keyring", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_sr_system = { package = "srml-system", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_version = { package = "sr-version", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_trie = { package = "substrate-trie", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_sr_sudo = { package = "srml-sudo", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_sr_finality_tracker = { package = "srml-finality-tracker", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_sr_im_online = { package = "srml-im-online", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_sr_metadata = { package = "srml-metadata", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_sr_democracy = { package = "srml-democracy", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+substrate_sr_collective = { package = "srml-collective", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-master" }
+
+# d517dbeb1d27b8068952e086c9ae472d49b707bd polkadot version
+polkadot_primitives = { package = "polkadot-primitives", git = "https://github.com/paritytech/polkadot.git", rev = "d517dbeb1d27b8068952e086c9ae472d49b707bd" }
+polkadot_runtime = { package = "polkadot-runtime", git = "https://github.com/paritytech/polkadot.git", rev = "d517dbeb1d27b8068952e086c9ae472d49b707bd" }
+
+[patch."https://github.com/paritytech/substrate.git"]
+chain-spec-builder = { path = "substrate_code_mod/test-utils/chain-spec-builder" }
+fork-tree = { path = "substrate_code_mod/core/utils/fork-tree" }
+node-cli = { path = "substrate_code_mod/node/cli" }
+node-executor = { path = "substrate_code_mod/node/executor" }
+node-primitives = { path = "substrate_code_mod/node/primitives" }
+node-rpc-client = { path = "substrate_code_mod/node/rpc-client" }
+node-rpc = { path = "substrate_code_mod/node/rpc" }
+node-runtime = { path = "substrate_code_mod/node/runtime" }
+node-template = { path = "substrate_code_mod/node-template" }
+node-template-release = { path = "substrate_code_mod/scripts/node-template-release" }
+node-template-runtime = { path = "substrate_code_mod/node-template/runtime" }
+node-testing = { path = "substrate_code_mod/node/testing" }
+sr-api-macros = { path = "substrate_code_mod/core/sr-api-macros" }
+sr-io = { path = "substrate_code_mod/core/sr-io" }
+srml-assets = { path = "substrate_code_mod/srml/assets" }
+srml-aura = { path = "substrate_code_mod/srml/aura" }
+srml-authority-discovery = { path = "substrate_code_mod/srml/authority-discovery" }
+srml-authorship = { path = "substrate_code_mod/srml/authorship" }
+srml-babe = { path = "substrate_code_mod/srml/babe" }
+srml-balances = { path = "substrate_code_mod/srml/balances" }
+srml-collective = { path = "substrate_code_mod/srml/collective" }
+srml-contracts = { path = "substrate_code_mod/srml/contracts" }
+srml-democracy = { path = "substrate_code_mod/srml/democracy" }
+srml-elections = { path = "substrate_code_mod/srml/elections" }
+srml-elections-phragmen = { path = "substrate_code_mod/srml/elections-phragmen" }
+srml-example = { path = "substrate_code_mod/srml/example" }
+srml-executive = { path = "substrate_code_mod/srml/executive" }
+srml-finality-tracker = { path = "substrate_code_mod/srml/finality-tracker" }
+srml-generic-asset = { path = "substrate_code_mod/srml/generic-asset" }
+srml-grandpa = { path = "substrate_code_mod/srml/grandpa" }
+srml-im-online = { path = "substrate_code_mod/srml/im-online" }
+srml-indices = { path = "substrate_code_mod/srml/indices" }
+srml-membership = { path = "substrate_code_mod/srml/membership" }
+srml-metadata = { path = "substrate_code_mod/srml/metadata" }
+srml-offences = { path = "substrate_code_mod/srml/offences" }
+srml-scored-pool = { path = "substrate_code_mod/srml/scored-pool" }
+srml-session = { path = "substrate_code_mod/srml/session" }
+srml-staking = { path = "substrate_code_mod/srml/staking" }
+srml-staking-reward-curve = { path = "substrate_code_mod/srml/staking/reward-curve" }
+srml-sudo = { path = "substrate_code_mod/srml/sudo" }
+srml-support = { path = "substrate_code_mod/srml/support" }
+srml-support-procedural = { path = "substrate_code_mod/srml/support/procedural" }
+srml-support-procedural-tools-derive = { path = "substrate_code_mod/srml/support/procedural/tools/derive" }
+srml-support-procedural-tools = { path = "substrate_code_mod/srml/support/procedural/tools" }
+srml-support-test = { path = "substrate_code_mod/srml/support/test" }
+srml-system = { path = "substrate_code_mod/srml/system" }
+srml-timestamp = { path = "substrate_code_mod/srml/timestamp" }
+srml-treasury = { path = "substrate_code_mod/srml/treasury" }
+sr-primitives = { path = "substrate_code_mod/core/sr-primitives" }
+sr-sandbox = { path = "substrate_code_mod/core/sr-sandbox" }
+sr-staking-primitives = { path = "substrate_code_mod/core/sr-staking-primitives" }
+sr-std = { path = "substrate_code_mod/core/sr-std" }
+sr-version = { path = "substrate_code_mod/core/sr-version" }
+subkey = { path = "substrate_code_mod/subkey" }
+substrate-application-crypto = { path = "substrate_code_mod/core/application-crypto" }
+substrate-authority-discovery = { path = "substrate_code_mod/core/authority-discovery" }
+substrate-authority-discovery-primitives = { path = "substrate_code_mod/core/authority-discovery/primitives" }
+substrate-basic-authorship = { path = "substrate_code_mod/core/basic-authorship" }
+substrate-chain-spec-derive = { path = "substrate_code_mod/core/chain-spec/derive" }
+substrate-chain-spec = { path = "substrate_code_mod/core/chain-spec" }
+substrate-client-db = { path = "substrate_code_mod/core/client/db" }
+substrate-client = { path = "substrate_code_mod/core/client" }
+substrate-cli = { path = "substrate_code_mod/core/cli" }
+substrate-consensus-aura = { path = "substrate_code_mod/core/consensus/aura" }
+substrate-consensus-aura-primitives = { path = "substrate_code_mod/core/consensus/aura/primitives" }
+substrate-consensus-babe = { path = "substrate_code_mod/core/consensus/babe" }
+substrate-consensus-babe-primitives = { path = "substrate_code_mod/core/consensus/babe/primitives" }
+substrate-consensus-common = { path = "substrate_code_mod/core/consensus/common" }
+substrate-consensus-pow = { path = "substrate_code_mod/core/consensus/pow" }
+substrate-consensus-pow-primitives = { path = "substrate_code_mod/core/consensus/pow/primitives" }
+substrate-consensus-rhd = { path = "substrate_code_mod/core/consensus/rhd" }
+substrate-consensus-slots = { path = "substrate_code_mod/core/consensus/slots" }
+substrate-consensus-uncles = { path = "substrate_code_mod/core/consensus/uncles" }
+substrate-executor = { path = "substrate_code_mod/core/executor" }
+substrate-finality-grandpa = { path = "substrate_code_mod/core/finality-grandpa" }
+substrate-finality-grandpa-primitives = { path = "substrate_code_mod/core/finality-grandpa/primitives" }
+substrate-header-metadata = { path = "substrate_code_mod/core/client/header-metadata" }
+substrate-inherents = { path = "substrate_code_mod/core/inherents" }
+substrate-keyring = { path = "substrate_code_mod/core/keyring" }
+substrate-keystore = { path = "substrate_code_mod/core/keystore" }
+substrate-network = { path = "substrate_code_mod/core/network" }
+substrate-offchain = { path = "substrate_code_mod/core/offchain" }
+substrate-offchain-primitives = { path = "substrate_code_mod/core/offchain/primitives" }
+substrate-panic-handler = { path = "substrate_code_mod/core/panic-handler" }
+substrate = { path = "substrate_code_mod" }
+substrate-peerset = { path = "substrate_code_mod/core/peerset" }
+substrate-phragmen = { path = "substrate_code_mod/core/phragmen" }
+substrate-primitives = { path = "substrate_code_mod/core/primitives" }
+substrate-rpc-api = { path = "substrate_code_mod/core/rpc/api" }
+substrate-rpc = { path = "substrate_code_mod/core/rpc" }
+substrate-rpc-primitives = { path = "substrate_code_mod/core/rpc/primitives" }
+substrate-rpc-servers = { path = "substrate_code_mod/core/rpc-servers" }
+substrate-runtime-test = { path = "substrate_code_mod/core/executor/runtime-test" }
+substrate-serializer = { path = "substrate_code_mod/core/serializer" }
+substrate-service = { path = "substrate_code_mod/core/service" }
+substrate-service-test = { path = "substrate_code_mod/core/service/test" }
+substrate-session = { path = "substrate_code_mod/core/session" }
+substrate-state-db = { path = "substrate_code_mod/core/state-db" }
+substrate-state-machine = { path = "substrate_code_mod/core/state-machine" }
+substrate-telemetry = { path = "substrate_code_mod/core/telemetry" }
+substrate-test-client = { path = "substrate_code_mod/core/test-client" }
+substrate-test-runtime-client = { path = "substrate_code_mod/core/test-runtime/client" }
+substrate-test-runtime = { path = "substrate_code_mod/core/test-runtime" }
+substrate-transaction-graph = { path = "substrate_code_mod/core/transaction-pool/graph" }
+substrate-transaction-pool = { path = "substrate_code_mod/core/transaction-pool" }
+substrate-trie = { path = "substrate_code_mod/core/trie" }
+substrate-wasm-builder = { path = "substrate_code_mod/core/utils/wasm-builder" }
+substrate-wasm-builder-runner = { path = "substrate_code_mod/core/utils/wasm-builder-runner" }
+substrate-wasm-interface = { path = "substrate_code_mod/core/wasm-interface" }
+transaction-factory = { path = "substrate_code_mod/test-utils/transaction-factory" }
+
+
+[patch."https://github.com/paritytech/substrate"]
+chain-spec-builder = { path = "substrate_code_mod/test-utils/chain-spec-builder" }
+fork-tree = { path = "substrate_code_mod/core/utils/fork-tree" }
+node-cli = { path = "substrate_code_mod/node/cli" }
+node-executor = { path = "substrate_code_mod/node/executor" }
+node-primitives = { path = "substrate_code_mod/node/primitives" }
+node-rpc-client = { path = "substrate_code_mod/node/rpc-client" }
+node-rpc = { path = "substrate_code_mod/node/rpc" }
+node-runtime = { path = "substrate_code_mod/node/runtime" }
+node-template = { path = "substrate_code_mod/node-template" }
+node-template-release = { path = "substrate_code_mod/scripts/node-template-release" }
+node-template-runtime = { path = "substrate_code_mod/node-template/runtime" }
+node-testing = { path = "substrate_code_mod/node/testing" }
+sr-api-macros = { path = "substrate_code_mod/core/sr-api-macros" }
+sr-io = { path = "substrate_code_mod/core/sr-io" }
+srml-assets = { path = "substrate_code_mod/srml/assets" }
+srml-aura = { path = "substrate_code_mod/srml/aura" }
+srml-authority-discovery = { path = "substrate_code_mod/srml/authority-discovery" }
+srml-authorship = { path = "substrate_code_mod/srml/authorship" }
+srml-babe = { path = "substrate_code_mod/srml/babe" }
+srml-balances = { path = "substrate_code_mod/srml/balances" }
+srml-collective = { path = "substrate_code_mod/srml/collective" }
+srml-contracts = { path = "substrate_code_mod/srml/contracts" }
+srml-democracy = { path = "substrate_code_mod/srml/democracy" }
+srml-elections = { path = "substrate_code_mod/srml/elections" }
+srml-elections-phragmen = { path = "substrate_code_mod/srml/elections-phragmen" }
+srml-example = { path = "substrate_code_mod/srml/example" }
+srml-executive = { path = "substrate_code_mod/srml/executive" }
+srml-finality-tracker = { path = "substrate_code_mod/srml/finality-tracker" }
+srml-generic-asset = { path = "substrate_code_mod/srml/generic-asset" }
+srml-grandpa = { path = "substrate_code_mod/srml/grandpa" }
+srml-im-online = { path = "substrate_code_mod/srml/im-online" }
+srml-indices = { path = "substrate_code_mod/srml/indices" }
+srml-membership = { path = "substrate_code_mod/srml/membership" }
+srml-metadata = { path = "substrate_code_mod/srml/metadata" }
+srml-offences = { path = "substrate_code_mod/srml/offences" }
+srml-scored-pool = { path = "substrate_code_mod/srml/scored-pool" }
+srml-session = { path = "substrate_code_mod/srml/session" }
+srml-staking = { path = "substrate_code_mod/srml/staking" }
+srml-staking-reward-curve = { path = "substrate_code_mod/srml/staking/reward-curve" }
+srml-sudo = { path = "substrate_code_mod/srml/sudo" }
+srml-support = { path = "substrate_code_mod/srml/support" }
+srml-support-procedural = { path = "substrate_code_mod/srml/support/procedural" }
+srml-support-procedural-tools-derive = { path = "substrate_code_mod/srml/support/procedural/tools/derive" }
+srml-support-procedural-tools = { path = "substrate_code_mod/srml/support/procedural/tools" }
+srml-support-test = { path = "substrate_code_mod/srml/support/test" }
+srml-system = { path = "substrate_code_mod/srml/system" }
+srml-timestamp = { path = "substrate_code_mod/srml/timestamp" }
+srml-treasury = { path = "substrate_code_mod/srml/treasury" }
+sr-primitives = { path = "substrate_code_mod/core/sr-primitives" }
+sr-sandbox = { path = "substrate_code_mod/core/sr-sandbox" }
+sr-staking-primitives = { path = "substrate_code_mod/core/sr-staking-primitives" }
+sr-std = { path = "substrate_code_mod/core/sr-std" }
+sr-version = { path = "substrate_code_mod/core/sr-version" }
+subkey = { path = "substrate_code_mod/subkey" }
+substrate-application-crypto = { path = "substrate_code_mod/core/application-crypto" }
+substrate-authority-discovery = { path = "substrate_code_mod/core/authority-discovery" }
+substrate-authority-discovery-primitives = { path = "substrate_code_mod/core/authority-discovery/primitives" }
+substrate-basic-authorship = { path = "substrate_code_mod/core/basic-authorship" }
+substrate-chain-spec-derive = { path = "substrate_code_mod/core/chain-spec/derive" }
+substrate-chain-spec = { path = "substrate_code_mod/core/chain-spec" }
+substrate-client-db = { path = "substrate_code_mod/core/client/db" }
+substrate-client = { path = "substrate_code_mod/core/client" }
+substrate-cli = { path = "substrate_code_mod/core/cli" }
+substrate-consensus-aura = { path = "substrate_code_mod/core/consensus/aura" }
+substrate-consensus-aura-primitives = { path = "substrate_code_mod/core/consensus/aura/primitives" }
+substrate-consensus-babe = { path = "substrate_code_mod/core/consensus/babe" }
+substrate-consensus-babe-primitives = { path = "substrate_code_mod/core/consensus/babe/primitives" }
+substrate-consensus-common = { path = "substrate_code_mod/core/consensus/common" }
+substrate-consensus-pow = { path = "substrate_code_mod/core/consensus/pow" }
+substrate-consensus-pow-primitives = { path = "substrate_code_mod/core/consensus/pow/primitives" }
+substrate-consensus-rhd = { path = "substrate_code_mod/core/consensus/rhd" }
+substrate-consensus-slots = { path = "substrate_code_mod/core/consensus/slots" }
+substrate-consensus-uncles = { path = "substrate_code_mod/core/consensus/uncles" }
+substrate-executor = { path = "substrate_code_mod/core/executor" }
+substrate-finality-grandpa = { path = "substrate_code_mod/core/finality-grandpa" }
+substrate-finality-grandpa-primitives = { path = "substrate_code_mod/core/finality-grandpa/primitives" }
+substrate-header-metadata = { path = "substrate_code_mod/core/client/header-metadata" }
+substrate-inherents = { path = "substrate_code_mod/core/inherents" }
+substrate-keyring = { path = "substrate_code_mod/core/keyring" }
+substrate-keystore = { path = "substrate_code_mod/core/keystore" }
+substrate-network = { path = "substrate_code_mod/core/network" }
+substrate-offchain = { path = "substrate_code_mod/core/offchain" }
+substrate-offchain-primitives = { path = "substrate_code_mod/core/offchain/primitives" }
+substrate-panic-handler = { path = "substrate_code_mod/core/panic-handler" }
+substrate = { path = "substrate_code_mod" }
+substrate-peerset = { path = "substrate_code_mod/core/peerset" }
+substrate-phragmen = { path = "substrate_code_mod/core/phragmen" }
+substrate-primitives = { path = "substrate_code_mod/core/primitives" }
+substrate-rpc-api = { path = "substrate_code_mod/core/rpc/api" }
+substrate-rpc = { path = "substrate_code_mod/core/rpc" }
+substrate-rpc-primitives = { path = "substrate_code_mod/core/rpc/primitives" }
+substrate-rpc-servers = { path = "substrate_code_mod/core/rpc-servers" }
+substrate-runtime-test = { path = "substrate_code_mod/core/executor/runtime-test" }
+substrate-serializer = { path = "substrate_code_mod/core/serializer" }
+substrate-service = { path = "substrate_code_mod/core/service" }
+substrate-service-test = { path = "substrate_code_mod/core/service/test" }
+substrate-session = { path = "substrate_code_mod/core/session" }
+substrate-state-db = { path = "substrate_code_mod/core/state-db" }
+substrate-state-machine = { path = "substrate_code_mod/core/state-machine" }
+substrate-telemetry = { path = "substrate_code_mod/core/telemetry" }
+substrate-test-client = { path = "substrate_code_mod/core/test-client" }
+substrate-test-runtime-client = { path = "substrate_code_mod/core/test-runtime/client" }
+substrate-test-runtime = { path = "substrate_code_mod/core/test-runtime" }
+substrate-transaction-graph = { path = "substrate_code_mod/core/transaction-pool/graph" }
+substrate-transaction-pool = { path = "substrate_code_mod/core/transaction-pool" }
+substrate-trie = { path = "substrate_code_mod/core/trie" }
+substrate-wasm-builder = { path = "substrate_code_mod/core/utils/wasm-builder" }
+substrate-wasm-builder-runner = { path = "substrate_code_mod/core/utils/wasm-builder-runner" }
+substrate-wasm-interface = { path = "substrate_code_mod/core/wasm-interface" }
+transaction-factory = { path = "substrate_code_mod/test-utils/transaction-factory" }
+
+
+
+[patch."https://github.com/paritytech/polkadot.git"]
+adder-collator = { path = "polkadot_mod/test-parachains/adder/collator" }
+adder = { path = "polkadot_mod/test-parachains/adder" }
+halt = { path = "polkadot_mod/test-parachains/halt" }
+polkadot-availability-store = { path = "polkadot_mod/availability-store" }
+polkadot-cli = { path = "polkadot_mod/cli" }
+polkadot-collator = { path = "polkadot_mod/collator" }
+polkadot-erasure-coding = { path = "polkadot_mod/erasure-coding" }
+polkadot-executor = { path = "polkadot_mod/executor" }
+polkadot-network = { path = "polkadot_mod/network" }
+polkadot-parachain = { path = "polkadot_mod/parachain" }
+polkadot = { path = "polkadot_mod" }
+polkadot-primitives = { path = "polkadot_mod/primitives" }
+polkadot-runtime = { path = "polkadot_mod/runtime" }
+polkadot-service = { path = "polkadot_mod/service" }
+polkadot-statement-table = { path = "polkadot_mod/statement-table" }
+polkadot-validation = { path = "polkadot_mod/validation" }
+
+[patch."https://github.com/paritytech/polkadot"]
+adder-collator = { path = "polkadot_mod/test-parachains/adder/collator" }
+adder = { path = "polkadot_mod/test-parachains/adder" }
+halt = { path = "polkadot_mod/test-parachains/halt" }
+polkadot-availability-store = { path = "polkadot_mod/availability-store" }
+polkadot-cli = { path = "polkadot_mod/cli" }
+polkadot-collator = { path = "polkadot_mod/collator" }
+polkadot-erasure-coding = { path = "polkadot_mod/erasure-coding" }
+polkadot-executor = { path = "polkadot_mod/executor" }
+polkadot-network = { path = "polkadot_mod/network" }
+polkadot-parachain = { path = "polkadot_mod/parachain" }
+polkadot = { path = "polkadot_mod" }
+polkadot-primitives = { path = "polkadot_mod/primitives" }
+polkadot-runtime = { path = "polkadot_mod/runtime" }
+polkadot-service = { path = "polkadot_mod/service" }
+polkadot-statement-table = { path = "polkadot_mod/statement-table" }
+polkadot-validation = { path = "polkadot_mod/validation" }
